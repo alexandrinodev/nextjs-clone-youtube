@@ -25,27 +25,30 @@ function VideoCard({ item }) {
     <Box>
       <img alt={item.title} src={item.thumb} className={classes.img} />
       <Box display="flex" mt="1">
-        <Avatar alt={item.authorName} src={item.authorName}>
-          SS
-        </Avatar>
+        <Box mr={2}>
+          <Avatar alt={item.authorName} src={item.authorName}>
+            SS
+          </Avatar>
+        </Box>
+        <Box>
+          <Typography
+            className={classes.caption}
+            gutterBottom
+            variant="body1"
+            color="textPrimary"
+          >
+            {item.title}
+          </Typography>
+
+          <Typography diplay="block" variant="body2" color="textSecondary">
+            {item.authorName}
+          </Typography>
+
+          <Typography>
+            {`${item.views} - ${dayjs(item.updateAt).fromNow()}`}
+          </Typography>
+        </Box>
       </Box>
-      <Typography
-        className={classes.caption}
-        gutterBottom
-        variant="body1"
-        color="textPrimary"
-      >
-        {item.title}
-      </Typography>
-
-      <Typography diplay="block" variant="body2" color="textSecondary">
-        {item.authorName}
-      </Typography>
-
-      <Typography>
-        {`${item.views} - ${dayjs(item.updateAt).fromNow()}`}
-      </Typography>
-      <Box></Box>
     </Box>
   );
 }
