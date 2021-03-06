@@ -3,8 +3,8 @@ import { MongoClient } from 'mongodb';
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB;
 
-const cachedDb;
-const cachedClient;
+let cachedDb;
+let cachedClient;
 
 // verifica se uri e dbname existe
 if (!uri) {
@@ -12,7 +12,7 @@ if (!uri) {
     'Please define the MONGODB_URI enviroment veriable inside .env.local',
   );
 }
-if (!dbNAme) {
+if (!dbName) {
   throw new Error(
     'Please define the MONGODB_DB enviroment veriable inside .env.local',
   );
